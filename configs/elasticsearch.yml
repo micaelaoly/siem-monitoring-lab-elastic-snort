@@ -1,0 +1,15 @@
+cluster.name: siem-lab
+
+node.name: siem-node-1
+
+network.host: 0.0.0.0
+
+http.port: 9200
+
+discovery.type: single-node
+
+xpack.security.enabled: false
+
+path.data: /var/lib/elasticsearch
+
+path.logs: /var/log/elasticsearch

@@ -1,54 +1,61 @@
-# SIEM Monitoring Lab with Elastic Stack and Snort
+# Full Documentation - SIEM Monitoring Lab with Elastic Stack and Snort
 
-Laboratorio SOC/Blue Team basado en Elastic Stack, Kibana, Logstash, Filebeat y Snort para centralizar, procesar y visualizar alertas de seguridad generadas por un IDS.
+# Introducción
 
----
+En este proyecto se desarrolló un laboratorio SIEM orientado a monitorización de seguridad y análisis de eventos utilizando Elastic Stack junto con Snort como sistema IDS.
 
-# Descripción del proyecto
+El objetivo principal fue simular un pequeño entorno SOC donde diferentes máquinas generan tráfico y eventos que posteriormente son detectados, procesados y visualizados desde una plataforma centralizada. Para ello se trabajó con tecnologías como Elasticsearch, Kibana, Logstash, Filebeat y Snort dentro de un entorno virtualizado sobre Linux.
 
-Este proyecto consiste en el despliegue de un entorno SIEM funcional en un laboratorio virtualizado orientado a monitorización de seguridad, análisis de eventos y detección de actividad sospechosa en red.
+Durante el desarrollo del laboratorio se configuró un flujo completo de eventos de seguridad, permitiendo observar cómo una alerta generada por el IDS puede ser recogida, procesada e indexada dentro de un SIEM moderno para posteriormente ser analizada desde Kibana.
 
-El laboratorio fue diseñado simulando un pequeño entorno SOC donde diferentes máquinas generan tráfico y eventos que posteriormente son detectados por Snort, procesados mediante Logstash y visualizados desde Kibana utilizando Elastic Stack. El objetivo principal fue comprender el flujo completo de eventos dentro de una arquitectura defensiva moderna, desde la generación de alertas por un IDS hasta su ingestión, clasificación y análisis centralizado dentro de un SIEM.
-
-Durante el proyecto se trabajó con conceptos relacionados con Blue Team, monitorización de red, análisis de logs, segmentación de servicios y procesamiento de eventos de seguridad en tiempo real.
+Además de la parte relacionada con monitorización y gestión de logs, el proyecto también permitió reforzar conocimientos relacionados con redes, administración Linux, análisis de eventos, configuración de servicios y conceptos básicos de Blue Team.
 
 ---
 
-# Tecnologías utilizadas
+# Objetivos del laboratorio
 
-- Ubuntu Server
-- Kali Linux
-- Elastic Stack
-  - Elasticsearch
-  - Kibana
-  - Logstash
-  - Filebeat
-- Snort IDS
-- Linux
-- Redes TCP/IP
-- VirtualBox
+Los principales objetivos del proyecto fueron los siguientes:
+
+- Desplegar un entorno SIEM funcional utilizando Elastic Stack
+- Configurar un IDS basado en Snort para detectar tráfico sospechoso
+- Centralizar logs de seguridad dentro de Elasticsearch
+- Procesar eventos utilizando Logstash
+- Visualizar alertas y eventos desde Kibana
+- Comprender el flujo completo de eventos dentro de una arquitectura defensiva
+- Simular un entorno básico orientado a SOC y monitorización de seguridad
 
 ---
 
-# Arquitectura del laboratorio
+# Arquitectura del entorno
 
-| Máquina | Función | IP |
+El laboratorio se compone de tres máquinas virtuales conectadas mediante una red interna virtualizada:
+
+| Máquina | Función | Dirección IP |
 |---|---|---|
 | SIEM-ELK | Elasticsearch + Kibana + Logstash | 192.168.56.10 |
 | IDS-SNORT | Snort + Filebeat | 192.168.56.20 |
 | KALI | Generación de tráfico y pruebas | 192.168.56.30 |
 
+Cada máquina cumple una función específica dentro del flujo de eventos del laboratorio.
+
+La máquina IDS es la encargada de monitorizar tráfico y generar alertas mediante Snort. Posteriormente Filebeat recoge los logs generados y los envía hacia Logstash, donde son procesados antes de almacenarse dentro de Elasticsearch. Finalmente Kibana permite visualizar y analizar toda la información desde una interfaz gráfica.
+
 ---
 
-# Flujo de eventos
+# Flujo de funcionamiento del laboratorio
 
-1. Snort detecta tráfico potencialmente sospechoso o eventos definidos mediante reglas IDS
-2. Las alertas generadas son almacenadas en logs locales dentro de la máquina IDS
-3. Filebeat monitoriza continuamente dichos logs y reenvía los eventos hacia Logstash
-4. Logstash procesa, filtra y clasifica los eventos según el tipo de tráfico detectado
-5. Elasticsearch indexa la información para facilitar búsquedas y correlación de eventos
-6. Kibana permite visualizar logs, aplicar filtros y analizar actividad de red desde una interfaz gráfica
+El funcionamiento general del laboratorio sigue el siguiente flujo:
 
+1. La máquina Kali genera tráfico de prueba dentro de la red
+2. Snort detecta eventos según las reglas configuradas
+3. Las alertas se almacenan en logs locales
+4. Filebeat monitoriza continuamente dichos logs
+5. Filebeat envía eventos hacia Logstash
+6. Logstash procesa y clasifica la información recibida
+7. Elasticsearch indexa los eventos procesados
+8. Kibana permite consultar y visualizar las alertas generadas
+
+Gracias a esta arquitectura fue posible simular de forma práctica un entorno de monitorización defensiva similar al utilizado en infraestructuras SOC reales.
 
 ---
 

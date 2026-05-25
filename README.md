@@ -58,11 +58,23 @@ Durante el proyecto se trabajó con conceptos relacionados con Blue Team, monito
 
 Se configuró una red interna virtualizada para permitir la comunicación entre las diferentes máquinas del laboratorio.
 
-### Capturas recomendadas
+### Capturas
 
-- Configuración IP
+- Configuración IP de SIEM ELK
+
+![Configuracion de SIEM ELK](images/1.conf-ip-siemelk.png)
+
+- Configuración IP de IDS SNORT
+
+![Configuracion de IDS SNORT](images/2.conf-ip-idsnort.png)
+
+- Configuración IP de KALI
+
+![Configuracion de KALI](images/3.conf-ip-kali.png)
+
 - Conectividad entre máquinas
-- Esquema de red
+
+![Conectividad](images/4.conectividad.png)
 
 ---
 
@@ -70,11 +82,15 @@ Se configuró una red interna virtualizada para permitir la comunicación entre 
 
 Se desplegó Elasticsearch como motor principal de almacenamiento e indexación de eventos de seguridad.
 
-### Capturas recomendadas
+### Capturas 
 
 - Servicio funcionando
+
+  ![Elastic funcionando](images/5.elastic-funcionando.png)
+
 - curl localhost:9200
-- Estado del clúster
+
+![Curl elastic](images/6.curl-localhost.png)
 
 ---
 
@@ -82,11 +98,19 @@ Se desplegó Elasticsearch como motor principal de almacenamiento e indexación 
 
 Kibana se configuró para conectarse a Elasticsearch y facilitar la visualización gráfica y análisis de eventos generados dentro del laboratorio.
 
-### Capturas recomendadas
+### Capturas 
 
 - Página principal de Kibana
+
+![Pagina kibana](images/7.pagina-kibana.png)
+
 - Discover
+
+  ![Discover kibana](images/9.discover-kibana.png)
+
 - Data Views
+  
+![Data views kibana](images/8.dataview-kibana.png)
 
 ---
 
@@ -94,11 +118,20 @@ Kibana se configuró para conectarse a Elasticsearch y facilitar la visualizaci�
 
 Filebeat se instaló en la máquina IDS para monitorizar continuamente los logs generados por Snort y enviarlos hacia Logstash para su procesamiento.
 
-### Capturas recomendadas
+### Capturas 
 
 - filebeat.yml
+
+![filebeat](images/10.filebeat.yml.png)
+
 - Servicio activo
+
+![Servicio activo](images/11.servicioactivo.png)
+
 - Logs enviados correctamente
+
+![Logs](images/12.logs-filebeat.png)
+
 
 ---
 
@@ -106,11 +139,12 @@ Filebeat se instaló en la máquina IDS para monitorizar continuamente los logs 
 
 Logstash se utilizó para procesar eventos y añadir campos personalizados según el tipo de tráfico detectado, permitiendo clasificar y organizar mejor la información almacenada.
 
-### Capturas recomendadas
+### Capturas 
 
 - Pipeline de Logstash
-- Puerto 5044 escuchando
-- Procesamiento de eventos
+  
+![pipeline](images/13.pipeline-logstash.png)
+
 
 ---
 
@@ -118,11 +152,14 @@ Logstash se utilizó para procesar eventos y añadir campos personalizados segú
 
 Snort se configuró como sistema IDS para detectar diferentes tipos de tráfico y generar alertas relacionadas con ICMP, SSH y otros eventos definidos mediante reglas personalizadas.
 
-### Capturas recomendadas
+### Capturas 
 
-- Reglas Snort
-- Alertas generadas
+  
 - Logs del IDS
+  ![snort](images/14.snort-filtrado.png)
+  ![alertas](images/15.alertas-snort.png)  
+
+
 
 ---
 

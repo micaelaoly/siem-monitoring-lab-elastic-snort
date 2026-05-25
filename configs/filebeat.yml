@@ -1,0 +1,13 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/snort/alert
+
+output.logstash:
+  hosts: ["192.168.56.10:5044"]
+
+logging.level: info
+
+setup.template.settings:
+  index.number_of_shards: 1

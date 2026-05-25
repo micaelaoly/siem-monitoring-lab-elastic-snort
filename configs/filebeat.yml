@@ -4,10 +4,22 @@ filebeat.inputs:
     paths:
       - /var/log/snort/alert
 
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+
+setup.template.settings:
+  index.number_of_shards: 1
+
 output.logstash:
   hosts: ["192.168.56.10:5044"]
 
 logging.level: info
 
-setup.template.settings:
-  index.number_of_shards: 1
+logging.to_files: true
+
+logging.files:
+  path: /var/log/filebeat
+  name: filebeat
+  keepfiles: 7
+  permissions: 0644

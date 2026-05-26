@@ -46,7 +46,7 @@ Cada máquina cumplía una función específica dentro del flujo de eventos.
 
 La máquina IDS era la encargada de monitorizar tráfico y generar alertas mediante Snort. Posteriormente Filebeat recogía los logs generados y los enviaba hacia Logstash, donde eran procesados antes de almacenarse dentro de Elasticsearch. Finalmente Kibana permitía consultar y visualizar toda la información desde una interfaz gráfica centralizada.
 
-![Arquitectura del laboratorio](../images/1.arquitectura-siem.png)
+![Arquitectura del laboratorio](../images/1111.arquitectura-siem.png)
 
 ---
 

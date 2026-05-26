@@ -9,7 +9,7 @@
 Elastic Stack · Snort IDS · SOC Monitoring · Blue Team
 ```
 
-# SIEM Monitoring Lab with Elastic Stack and Snort
+# SIEM Monitoring Lab con Elastic Stack y Snort
 
 ![Elastic Stack](https://img.shields.io/badge/Elastic%20Stack-SIEM-blue)
 ![Snort](https://img.shields.io/badge/Snort-IDS-red)
@@ -135,7 +135,7 @@ La integración entre Snort, Filebeat, Logstash y Elasticsearch permitió compre
 
 ---
 
-# Skills demonstrated
+# Skills 
 
 - SIEM deployment
 - IDS configuration
